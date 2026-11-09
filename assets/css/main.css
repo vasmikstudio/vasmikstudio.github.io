@@ -1,0 +1,175 @@
+/* System fonts only: nothing is fetched from third parties. */
+:root {
+  --bg: #f7f8fb;
+  --fg: #0f1222;
+  --muted: #5d6275;
+  --accent: #4f46e5;
+  --g1: #06b6d4;
+  --g2: #6366f1;
+  --g3: #d946ef;
+  --node: #ffffff;
+  --sans: system-ui, -apple-system, "Segoe UI Variable Text", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0b12;
+    --fg: #e8eaf3;
+    --muted: #8b90a5;
+    --accent: #a5b4fc;
+    --g1: #22d3ee;
+    --g2: #818cf8;
+    --g3: #e879f9;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.1875rem);
+  line-height: 1.6;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+header, main, footer {
+  width: 100%;
+  max-width: 36em;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+header { padding-top: 1.75rem; }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  color: var(--fg);
+  font-size: 0.95em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+.mark { width: 1.6em; height: 1.6em; }
+.mark path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+main {
+  flex: 1;
+  padding-top: clamp(1.5rem, 6vh, 4rem);
+  padding-bottom: 3rem;
+}
+
+/* Gradient stops shared by the mark and the hero. */
+.s1 { stop-color: var(--g1); }
+.s2 { stop-color: var(--g2); }
+.s3 { stop-color: var(--g3); }
+
+/* Hero: exploded isometric layers. Decorative only. */
+.hero {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+  margin: 0 auto 2.5rem;
+  overflow: visible;
+}
+.hero .face {
+  fill: url(#g-top);
+  fill-opacity: 0.9;
+  stroke: url(#g-edge);
+  stroke-width: 1.2;
+}
+.hero .side-l { fill: var(--g2); fill-opacity: 0.55; }
+.hero .side-r { fill: var(--g1); fill-opacity: 0.45; }
+.hero .layer-mid { opacity: 0.6; }
+.hero .layer-base { opacity: 0.35; }
+.hero .mesh {
+  fill: none;
+  stroke: #fff;
+  stroke-opacity: 0.35;
+  stroke-width: 0.8;
+}
+.hero .node {
+  fill: var(--node);
+  filter: drop-shadow(0 0 4px var(--g1));
+}
+.hero .beam {
+  fill: none;
+  stroke: var(--g1);
+  stroke-width: 1.2;
+  stroke-dasharray: 2 6;
+  stroke-opacity: 0.8;
+}
+.hero .spark {
+  fill: var(--g1);
+  filter: drop-shadow(0 0 6px var(--g1));
+}
+
+/* Gentle motion; disabled for users who ask for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero .layer { animation: float 7s ease-in-out infinite; }
+  .hero .layer-top { --lift: -8px; }
+  .hero .layer-mid { --lift: -5px; animation-delay: -1.2s; }
+  .hero .layer-base { --lift: -2px; animation-delay: -2.4s; }
+  .hero .node { animation: pulse 3.5s ease-in-out infinite; }
+  .hero .node:nth-of-type(2) { animation-delay: -0.9s; }
+  .hero .node:nth-of-type(3) { animation-delay: -1.8s; }
+  .hero .node:nth-of-type(4) { animation-delay: -2.7s; }
+  .hero .beam { animation: flow 2.5s linear infinite; }
+}
+@keyframes float { 50% { transform: translateY(var(--lift, -4px)); } }
+@keyframes pulse { 50% { opacity: 0.35; } }
+@keyframes flow { to { stroke-dashoffset: -16; } }
+
+h1 {
+  margin: 0 0 0.75em;
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+.grad {
+  background: linear-gradient(90deg, var(--g1), var(--g2) 55%, var(--g3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+p { margin: 0 0 1em; }
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.18em;
+}
+a:hover { text-decoration-thickness: 0.12em; }
+
+.contact { margin-top: 2em; }
+
+footer {
+  padding-bottom: 2rem;
+  color: var(--muted);
+}
+/* Font size on the paragraph, not the footer, so the em-based column width matches main. */
+footer p { font-size: 0.8em; }

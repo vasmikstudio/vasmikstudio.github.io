@@ -1,0 +1,15 @@
+baseURL = "https://vasmikstudio.com/"
+locale = "en-US"
+title = "Vasmik Studio"
+
+# One-page site: no blog, no taxonomies, no feeds.
+disableKinds = ["section", "taxonomy", "term", "rss"]
+enableRobotsTXT = true
+
+[params]
+  description = "Vasmik Studio is a small independent studio that designs and builds things."
+  # Contact address shown on the home page; leave unset to hide the line.
+  # email = "someone@vasmikstudio.com"
+
+[minify]
+  minifyOutput = true
