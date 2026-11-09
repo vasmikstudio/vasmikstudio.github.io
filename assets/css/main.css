@@ -8,6 +8,7 @@
   --g2: #6366f1;
   --g3: #d946ef;
   --node: #ffffff;
+  --dot: var(--g2);
   --sans: system-ui, -apple-system, "Segoe UI Variable Text", "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 }
@@ -21,6 +22,7 @@
     --g1: #22d3ee;
     --g2: #818cf8;
     --g3: #e879f9;
+    --dot: var(--g1);
   }
 }
 
@@ -57,21 +59,25 @@ header { padding-top: 1.75rem; }
 
 .brand {
   display: inline-flex;
-  align-items: center;
-  gap: 0.6em;
+  align-items: baseline;
   color: var(--fg);
-  font-size: 0.95em;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
   text-decoration: none;
 }
-.mark { width: 1.6em; height: 1.6em; }
-.mark path {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 3.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.brand .dot {
+  width: 0.3em;
+  height: 0.3em;
+  margin: 0 0.32em 0 0.1em;
+  border-radius: 0.07em;
+  background: var(--dot);
+}
+.brand .sub {
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--muted);
 }
 
 main {
@@ -80,7 +86,7 @@ main {
   padding-bottom: 3rem;
 }
 
-/* Gradient stops shared by the mark and the hero. */
+/* Gradient stops used by the hero. */
 .s1 { stop-color: var(--g1); }
 .s2 { stop-color: var(--g2); }
 .s3 { stop-color: var(--g3); }
