@@ -1,29 +1,18 @@
 /* System fonts only: nothing is fetched from third parties. */
 :root {
-  --bg: #f7f8fb;
-  --fg: #0f1222;
-  --muted: #5d6275;
-  --accent: #4f46e5;
-  --g1: #06b6d4;
-  --g2: #6366f1;
-  --g3: #d946ef;
+  /* Dark-only by design: the studio look is the dark theme. */
+  color-scheme: dark;
+  --bg: #0a0b12;
+  --fg: #e8eaf3;
+  --muted: #8b90a5;
+  --accent: #a5b4fc;
+  --g1: #22d3ee;
+  --g2: #818cf8;
+  --g3: #e879f9;
   --node: #ffffff;
-  --dot: var(--g2);
+  --dot: var(--g1);
   --sans: system-ui, -apple-system, "Segoe UI Variable Text", "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0a0b12;
-    --fg: #e8eaf3;
-    --muted: #8b90a5;
-    --accent: #a5b4fc;
-    --g1: #22d3ee;
-    --g2: #818cf8;
-    --g3: #e879f9;
-    --dot: var(--g1);
-  }
 }
 
 *, *::before, *::after { box-sizing: border-box; }

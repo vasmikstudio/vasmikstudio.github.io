@@ -2,7 +2,7 @@
 
 Landing page for Vasmik Studio. A one-page static site built with
 [Hugo](https://gohugo.io/) (Apache-2.0). No theme, no JavaScript, no web fonts,
-no trackers — just one HTML page with inlined CSS.
+no trackers — just one HTML page with inlined CSS. Dark theme only, by design.
 
 ## Layout
 
