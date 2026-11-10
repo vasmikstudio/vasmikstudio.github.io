@@ -34,6 +34,27 @@
 {{- $parts := split $t ", " }}
 <h1>{{ if eq (len $parts) 2 }}{{ index $parts 0 }}, <span class="grad">{{ index $parts 1 }}</span>{{ else }}{{ $t }}{{ end }}</h1>
 {{ .Content }}
+{{- with .Params.products }}
+<section class="products" id="products" aria-labelledby="products-title">
+  <h2 id="products-title">Products</h2>
+  <ul>
+    {{- range . }}
+    <li>
+      <a class="product" href="{{ .url }}">
+        {{- if eq .icon "book" }}
+        <svg class="product-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 14c-5-3.5-11-4-17-3v24c6-1 12-.5 17 3 5-3.5 11-4 17-3V11c-6-1-12-.5-17 3Z"/><path d="M24 14v24"/></svg>
+        {{- end }}
+        <span class="product-body">
+          <span class="product-name">{{ .name }}</span>
+          <span class="product-summary">{{ .summary }}</span>
+          <span class="product-meta"><span class="product-status">{{ .status }}</span><span class="product-link">{{ (urls.Parse .url).Host }} <span aria-hidden="true">→</span></span></span>
+        </span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}
 {{- with site.Params.email }}
 <p class="contact"><a href="mailto:{{ . }}">{{ . }}</a></p>
 {{- end }}

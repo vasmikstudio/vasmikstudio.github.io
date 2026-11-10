@@ -160,6 +160,61 @@ a {
 }
 a:hover { text-decoration-thickness: 0.12em; }
 
+/* Products */
+.products { margin-top: 3.5rem; }
+.products h2 {
+  margin: 0 0 1rem;
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.products ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.product {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--fg);
+  text-decoration: none;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.product:hover, .product:focus-visible {
+  border-color: color-mix(in srgb, var(--g2) 55%, transparent);
+  background: rgba(129, 140, 248, 0.06);
+}
+.product:focus-visible { outline: 2px solid var(--g1); outline-offset: 3px; }
+.product-icon {
+  flex: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0.45rem;
+  border-radius: 10px;
+  background: rgba(215, 176, 113, 0.12);
+  fill: none;
+  stroke: #d7b071; /* Nightleaf's brass */
+  stroke-width: 2.4;
+  stroke-linejoin: round;
+}
+.product-body { display: grid; gap: 0.35rem; }
+.product-name { font-weight: 650; font-size: 1.1em; }
+.product-summary { color: var(--muted); }
+.product-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  justify-content: space-between;
+  margin-top: 0.3rem;
+  font-size: 0.85em;
+}
+.product-status { color: var(--muted); }
+.product-link { color: var(--accent); }
+.product:hover .product-link { text-decoration: underline; text-underline-offset: 0.18em; }
+
 .contact { margin-top: 2em; }
 
 footer {

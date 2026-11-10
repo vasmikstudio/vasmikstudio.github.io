@@ -8,13 +8,19 @@ no trackers — just one HTML page with inlined CSS. Dark theme only, by design.
 
 ```
 hugo.toml             site config; optional contact email in [params]
-content/_index.md     the page text
+content/_index.md     the page text and the products list (front matter)
 layouts/baseof.html   HTML shell (head, footer)
 layouts/home.html     home page
 layouts/404.html      not-found page
 assets/css/main.css   styles, minified and inlined into each page
 static/favicon.svg    favicon
 ```
+
+## Products
+
+The "Products" section on the home page is generated from the `products` list
+in the front matter of `content/_index.md` (name, url, icon, status, summary).
+Add an entry there to list a new product; `icon: book` is the only icon so far.
 
 ## Contact line
 
