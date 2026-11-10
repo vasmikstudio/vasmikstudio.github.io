@@ -6,7 +6,7 @@ products:
   - name: Nightleaf Book Reader
     url: https://nightleaf.app/
     icon: book
-    status: Coming soon · Windows and macOS
+    status: Free · Windows · macOS coming soon
     summary: >-
       A desktop e-book reader for long, comfortable reading. Pages set like a
       good printed book, laid open on a lamp-lit desk, in colours that are kind
